@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Berita - Desa Ngrawan</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    .berita-list { padding: 2rem 1rem; max-width: 800px; margin: auto; }
+    .card { border: 1px solid #ccc; border-radius: 6px; margin-bottom: 1rem; overflow: hidden; }
+    .card img { width: 100%; height: 200px; object-fit: cover; }
+    .card .konten { padding: 1rem; }
+    .card h3 { margin: 0 0 0.5rem; }
+    .card p { margin: 0.5rem 0; color: #555; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">🌲 <strong>Desa</strong> Ngrawan</div>
+    <nav>
+      <a href="index.html">Beranda</a>
+      <a href="profil.html">Profil</a>
+      <a href="potensi.html">Potensi</a>
+    </nav>
+  </header>
+
+  <div class="berita-list" id="berita-container">
+    <!-- Card berita akan dimuat lewat JavaScript -->
+  </div>
+
+  <script>
+    const berita = [
+      {
+        judul: "Pasar Desa Resmi Dibuka",
+        tanggal: "22 Juli 2025",
+        gambar: "assets/images/pasar.jpg",
+        isi: "Pasar desa Ngrawan kini resmi dibuka untuk umum setiap hari Senin dan Kamis.",
+        link: "berita/2025-07-pasar.html"
+      },
+      {
+        judul: "Kegiatan HUT RI ke-80",
+        tanggal: "17 Agustus 2025",
+        gambar: "assets/images/hutri.jpg",
+        isi: "Perayaan HUT RI ke-80 di Desa Ngrawan meriah dengan lomba dan karnaval.",
+        link: "berita/2025-08-hutri.html"
+      }
+    ];
+
+    const container = document.getElementById("berita-container");
+    berita.forEach(item => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <a href="${item.link}"><img src="${item.gambar}" alt="${item.judul}"></a>
+        <div class="konten">
+          <h3><a href="${item.link}">${item.judul}</a></h3>
+          <p><small>${item.tanggal}</small></p>
+          <p>${item.isi}</p>
+        </div>`;
+      container.appendChild(card);
+    });
+  </script>
+</body>
+</html>
